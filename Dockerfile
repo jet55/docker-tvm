@@ -2,7 +2,7 @@ FROM centos/python-36-centos7:latest
 ENV TF_VERSION=1.15.2 \
     CMAKE_VERSION=3.16.3 \
     LLVM_VERSION=9.0.1
-
+USER root
 RUN yum update -y \
     && yum install -y \
       sudo \
