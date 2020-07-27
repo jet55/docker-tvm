@@ -20,7 +20,7 @@ RUN yum install -y \
     && tar -xf clang-$LLVM_VERSION.src.tar.xz \
     && mv clang-$LLVM_VERSION.src clang \
     && mv llvm-$LLVM_VERSION.src llvm \
-    && rm -f ./*-$LLVM_VERSION.src.tar.xz cmake-$CMAKE_VERSION-Linux-x86_64.sh
+    && rm -f ./*-$LLVM_VERSION.src.tar.xz cmake-$CMAKE_VERSION-Linux-x86_64.sh \
     && mkdir -v build \
     && cd build \
     && source scl_source enable devtoolset-8 \
