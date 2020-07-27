@@ -9,8 +9,9 @@ RUN yum install -y \
       git \
       centos-release-scl \
       epel-release \
-      ninja-build \
+    && yum install -y \
       devtoolset-8 \
+      ninja-build \
     && yum clean all \
     && wget https://github.com/Kitware/CMake/releases/download/v$CMAKE_VERSION/cmake-$CMAKE_VERSION-Linux-x86_64.sh \
     && sh cmake-$CMAKE_VERSION-Linux-x86_64.sh --prefix=/usr --skip-license \
