@@ -36,4 +36,7 @@ RUN yum install -y \
        -DLLVM_INCLUDE_EXAMPLES=OFF               \
        -DLLVM_OPTIMIZED_TABLEGEN=ON              \
        -DLLVM_ENABLE_PROJECTS="clang"            \
-       -Wno-dev -G Ninja ../llvm
+       -Wno-dev -G Ninja ../llvm \
+    && ninja clang \
+    && ninja install \
+    && clang --version
