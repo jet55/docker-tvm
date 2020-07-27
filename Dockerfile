@@ -33,6 +33,4 @@ RUN yum update -y \
        -DLLVM_BUILD_TESTS=OFF                    \
        -DLLVM_INCLUDE_TOOLS=bootstrap-only       \
        -DLLVM_OPTIMIZED_TABLEGEN=ON              \
-       -Wno-dev -G Ninja ..                      \
-    && ninja \
-    && ninja install
+       -Wno-dev -G Ninja ..
