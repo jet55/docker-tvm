@@ -1,7 +1,8 @@
 FROM centos/python-36-centos7:latest
-ENV TF_VERSION=1.15.2 \
-    CMAKE_VERSION=3.16.3 \
-    LLVM_VERSION=9.0.1
+ENV CMAKE_VERSION=3.16.3 \
+    LLVM_VERSION=9.0.1 \
+    PYLINT_VERSION=1.9.4 \
+    TF_VERSION=1.15.2    
 USER root
 RUN yum install -y \
       sudo \
@@ -40,3 +41,25 @@ RUN yum install -y \
     && ninja clang \
     && ninja install \
     && clang --version
+
+RUN python3 -m pip install    \
+      pylint==$PYLINT_VERSION \
+      six                     \
+      numpy                   \
+      pytest                  \
+      cython                  \
+      decorator               \
+      scipy                   \
+      tornado                 \
+      typed_ast               \
+      pytest                  \
+      mypy                    \
+      orderedset              \
+      antlr4-python3-runtime  \
+      attrs                   \
+      requests                \
+      Pillow                  \
+      packaging               \
+      tensorflow==$TF_VERSION \
+    && git clone --recursive https://github.com/apache/incubator-tvm tvm \
+    && cd tvm
