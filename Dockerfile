@@ -41,8 +41,9 @@ RUN yum install -y \
        -Wno-dev -G Ninja ../llvm \
     && ninja clang \
     && ninja install \
+    && echo "export LD_LIBRARY_PATH=/usr/lib" >> ~/.bashrc \
     && cd .. \
-    && rm -rf ./clang ./llvm \
+    && rm -rf ./clang ./llvm ./build \
     && pip install --upgrade pip \
     && pip install \
       pylint==1.9.4 six numpy cython decorator scipy tornado typed_ast attrs requests packaging typing \
