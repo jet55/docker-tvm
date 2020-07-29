@@ -45,7 +45,6 @@ RUN yum install -y \
     && rm -rf ./clang ./llvm \
     && pip install --upgrade pip \
     && pip install \
-      pylint==1.9.4 six numpy cython decorator scipy tornado typed_ast attrs requests packaging \
+      pylint==1.9.4 six numpy cython decorator scipy tornado typed_ast attrs requests packaging typing \
     && pip install \
-      mypy orderedset antlr4-python3-runtime pillow pytest tensorflow==$TF_VERSION \
-    && pip cache purge
+      mypy orderedset antlr4-python3-runtime pillow pytest tensorflow==$TF_VERSION
