@@ -7,6 +7,8 @@ RUN    echo deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-9 main \
     && wget -q -O - http://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - \
     && apt-get update \
     && apt-get install -y \
+      wget \
+      gnupg \
       git \
       clang-9 \
       llvm-9-dev \
