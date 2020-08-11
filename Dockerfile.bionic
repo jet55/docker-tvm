@@ -5,6 +5,7 @@ RUN apt-get update \
       wget \
       gnupg \
       git \
+      unzip \
       ninja-build \
       software-properties-common \
       python3-dev \
@@ -18,7 +19,6 @@ RUN apt-get update \
     && apt-get install -y \
       clang-9 \
       llvm-9-dev \
-    && rm -rf /var/lib/apt/lists/* \
     && pip3 install --upgrade pip setuptools \
     && pip3 install \
       pylint==1.9.4 six numpy cython decorator scipy tornado typed_ast attrs requests packaging typing \
