@@ -1,7 +1,7 @@
-FROM centos/python-36-centos7:latest
+FROM centos/python-38-centos7:latest
 ENV CMAKE_VERSION=3.16.3 \
     LLVM_VERSION=9.0.1 \
-    TF_VERSION=1.15.2 \
+    TF_VERSION=2.3.1 \
     ENV=~/.bashrc
 USER root
 RUN yum install -y \
@@ -15,6 +15,7 @@ RUN yum install -y \
       ninja-build \
       python3-setuptools \
       libXrender \
+      mesa-libGL \
     && yum clean all \
     && wget https://github.com/Kitware/CMake/releases/download/v$CMAKE_VERSION/cmake-$CMAKE_VERSION-Linux-x86_64.sh \
     && sh cmake-$CMAKE_VERSION-Linux-x86_64.sh --prefix=/usr --skip-license \
@@ -49,6 +50,5 @@ RUN yum install -y \
     && pip install --upgrade pip setuptools \
     && pip install \
       pylint==1.9.4 six numpy cython decorator scipy tornado typed_ast attrs requests packaging typing \
-    && pip install \
       mypy orderedset antlr4-python3-runtime pillow pytest tensorflow==$TF_VERSION simpy psutil dataclasses
 CMD ["/bin/bash"]
