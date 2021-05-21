@@ -52,3 +52,4 @@ RUN yum install -y \
       pylint==1.9.4 six numpy cython decorator scipy tornado typed_ast attrs requests packaging typing \
       mypy orderedset antlr4-python3-runtime pillow pytest tensorflow==$TF_VERSION simpy psutil dataclasses
 CMD ["/bin/bash"]
+VOLUME /auto/mir
